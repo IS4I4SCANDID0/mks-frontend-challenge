@@ -1,0 +1,17 @@
+@use "./abstracts/variables" as *;
+
+body {
+  font-style: normal;
+  width: 100vw;
+  height: 100vh;
+}
+
+@media(min-width: 769px) {
+  body {
+    overflow-x: hidden;
+
+    button {
+      cursor: pointer;
+    }
+  }
+}
