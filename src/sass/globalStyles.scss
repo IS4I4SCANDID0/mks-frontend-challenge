@@ -1,6 +1,7 @@
 @use "./abstracts/variables" as *;
 
 body {
+  font-family: $font-family-default;
   font-style: normal;
   width: 100vw;
   height: 100vh;
