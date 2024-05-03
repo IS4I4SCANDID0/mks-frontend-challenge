@@ -1,4 +1,4 @@
-// import { queryClient } from "@/services/queryClinte";
+import "@/scss/main.scss"
 import { QueryClient, QueryClientProvider, QueryClientProviderProps } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
 import React from "react";

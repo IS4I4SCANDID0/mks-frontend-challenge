@@ -1,18 +1,50 @@
+// interface IProducts {
+//   id: number;
+//   photo: string;
+//   name: string;
+//   description: string;
+//   price: string;
+//   createdAt: string;
+//   updatedAt: string;
+// }
+
+// interface IStaticProps {
+//   products: IProducts[];
+//   count: number;
+// }
+
+// interface IProductsCardProps {
+//   product: IProducts;
+// }
+
+// interface IProductsCardPropsArray {
+//   products: IProductsCardProps[];
+// }
+
+
+interface IProduct {
+  id: number;
+  photo: string;
+  name: string;
+  description: string;
+  price: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 interface IProducts {
-    id: number,
-    img: string,
-    name: string,
-    description: string,
-    price: number
+  products: IProduct[];
+  count: number;
 }
-
-
-interface IStaticProps {
-  products: IProducts[],
-  count: number
-}
-
 
 interface IProductsCardProps {
-  product: IProducts
+  product: IProduct;
+}
+
+interface IProductsCardPropsArray {
+  products: IProductsCardProps[];
+}
+
+interface IStaticProps {
+  products: IProducts;
 }

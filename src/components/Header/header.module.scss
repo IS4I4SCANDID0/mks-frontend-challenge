@@ -1,0 +1,60 @@
+@use "../../scss/abstracts/" as *;
+
+.headerContainer {
+  height: 50px;
+  display: flex;
+  padding: 2rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $color-brand;
+
+  div:first-child {
+    display: flex;
+    align-items: first baseline;
+    gap: 0.5rem;
+    color: $color-white-fixed;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 200;
+    }
+  }
+
+  button {
+    width: 3.75rem;
+    height: 1.75rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-white-fixed;
+    padding: 1rem 1rem 1rem 0.7rem;
+    font-weight: 600;
+    border-radius: $radius-default;
+
+    // img {
+    //   width: 20px;
+    //   height: 20px;
+    // }
+    // svg {
+    //   width: 25px;
+    //   height: 25px;
+    // }
+
+    span {
+      font-size: 0.9375rem;
+      font-weight: bold;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .headerContainer {
+    padding: 1rem 4rem;
+  }
+}

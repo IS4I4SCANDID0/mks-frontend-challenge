@@ -1,0 +1,20 @@
+@use "../../scss/abstracts/" as *;
+
+.listCard {
+  border: solid 1px green;
+  width: 300px;
+  // height: 195px;
+
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1rem;
+    letter-spacing: 0.062rem;
+    color: $color-white-fixed;
+    text-transform: uppercase;
+    background-color: $color-brand;
+  }
+}
