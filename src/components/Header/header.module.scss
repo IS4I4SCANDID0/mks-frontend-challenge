@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: $color-brand;
+  position: relative;
 
   div:first-child {
     display: flex;
@@ -26,14 +27,15 @@
   }
 
   button {
-    width: 3.75rem;
-    height: 1.75rem;
+    width: 4.375rem;
+    // height: 1.75rem;
     display: flex;
     gap: 1rem;
     align-items: center;
     justify-content: center;
     background-color: $color-white-fixed;
-    padding: 1rem 1rem 1rem 0.7rem;
+    // padding: 1rem 1rem 1rem 0.7rem;
+    padding: 0.5rem;
     font-weight: 600;
     border-radius: $radius-default;
 

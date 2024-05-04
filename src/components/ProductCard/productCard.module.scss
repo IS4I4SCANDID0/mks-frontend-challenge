@@ -1,20 +1,80 @@
 @use "../../scss/abstracts/" as *;
 
 .listCard {
-  border: solid 1px green;
-  width: 300px;
-  // height: 195px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 270px;
+  border-radius: $radius-default;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.13);
+
+  .listCardImg {
+    max-width: 100%;
+    height: 9.875rem;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    border-top-left-radius: $radius-default;
+    border-top-right-radius: $radius-default;
+
+    img {
+      width: 8.75rem;
+      height: 8.75rem;
+    }
+  }
+
+  
+  div:nth-child(2) {
+    padding: 1rem;
+    font-weight: 400;
+    
+    .productInfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    
+      h2 {
+        max-width: 8rem;
+        min-width: 8rem;
+        font-size: 1rem;
+      }
+      
+      span {
+        width: 6.8125rem;
+        min-width: 6.8125rem;
+        color: $color-white-fixed;
+        background-color: $color-grey-1;
+        border-radius: $radius-default;
+        padding: 0.5rem;
+        margin-top: 0.25rem;
+      }
+    }
+    
+    p {
+      font-size: 0.75rem;
+      font-weight: 300;
+    }
+
+  }
 
 
   button {
+    width: 100%;
+    height: 2.3125rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     gap: 1rem;
     font-size: 1rem;
     letter-spacing: 0.062rem;
     color: $color-white-fixed;
     text-transform: uppercase;
     background-color: $color-brand;
+    border-bottom-left-radius: $radius-default;
+    border-bottom-right-radius: $radius-default;
   }
 }

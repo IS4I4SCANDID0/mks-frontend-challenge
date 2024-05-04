@@ -5,31 +5,38 @@ import api from "@/services/api";
 import { GetServerSideProps, NextPage } from "next";
 import { NextFont } from "next/dist/compiled/@next/font";
 import { ProductCard } from "@/components/ProductCard/productCard";
-import { Header } from "@/components/Header/hearder";
-// import "@/scss/main.scss"
+import { Header } from "@/components/Header/header";
+import { Footer } from "@/components/Footer/footer";
+import { useState } from "react";
+import { LoadingComponent } from "@/components/Loading/loading";
 
 export const montserrat: NextFont = Montserrat({ 
   subsets: ["latin"], 
-  weight: ["100", "200","500","600"] 
+  weight: ["100", "200", "300", "500","600"] 
 });
 
-const getProducts = async ():Promise<IProduct[]> => {
-  const { data } = await api.get<IProduct[]>("/products?page=1&rows=5&sortBy=id&orderBy=ASC");
-  // console.log('1 sou o data',data)
+// const getProducts = async ():Promise<IProduct[]> => {
+//   const { data } = await api.get<IProduct[]>("/products?page=1&rows=5&sortBy=id&orderBy=ASC");
+//   // console.log('1 sou o data',data)
 
-  return data
-}
+//   return data
+// }
 
 const Home: NextPage<IStaticProps> = ({ products: staticProducts }): JSX.Element => {
-  // console.log('2 sou static',staticProducts)
-  const { data: clientProducts, isLoading } = useQuery<IProduct[]>({
-    queryKey: ['products'],
-    queryFn: getProducts,
-    initialData: staticProducts.products,
-  });
+  // const { data: clientProducts, isLoading } = useQuery<IProduct[]>({
+  //   queryKey: ['products'],
+  //   queryFn: getProducts,
+  //   initialData: staticProducts.products,
+  // });
 
-  const shopProducts = clientProducts || staticProducts
-  // console.log('sou o client product',clientProducts)
+  // const shopProducts = clientProducts || staticProducts
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+
+  if(staticProducts) {
+    setTimeout(() => {
+      setIsLoading(false)
+    },2500)
+  }
 
   return (
     <>
@@ -39,12 +46,11 @@ const Home: NextPage<IStaticProps> = ({ products: staticProducts }): JSX.Element
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Header />
       <main className="mainContainer">
         <ul>
           {isLoading ? (
-            <p>Loading...</p>
+            <LoadingComponent />
           ) : (   
             staticProducts.products.map((product: IProduct) => 
               <ProductCard key={product.id} product={product}/>
@@ -52,14 +58,15 @@ const Home: NextPage<IStaticProps> = ({ products: staticProducts }): JSX.Element
           )}
         </ul>
       </main>
+      <Footer />
     </>
   );
 }
 
 export const getStaticProps: GetServerSideProps = async () => {
-  // const response = await api.get<IProduct[]>("/products?page=1&rows=5&sortBy=id&orderBy=ASC");
-  // const products = response.data
-  const products = await getProducts()
+  const response = await api.get<IProduct[]>("/products?page=1&rows=5&sortBy=id&orderBy=ASC");
+  const products = response.data
+  // const products = await getProducts()
 
   return {
     props : {

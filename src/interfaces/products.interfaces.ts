@@ -1,32 +1,10 @@
-// interface IProducts {
-//   id: number;
-//   photo: string;
-//   name: string;
-//   description: string;
-//   price: string;
-//   createdAt: string;
-//   updatedAt: string;
-// }
-
-// interface IStaticProps {
-//   products: IProducts[];
-//   count: number;
-// }
-
-// interface IProductsCardProps {
-//   product: IProducts;
-// }
-
-// interface IProductsCardPropsArray {
-//   products: IProductsCardProps[];
-// }
-
+import { Dispatch, SetStateAction } from "react";
 
 interface IProduct {
   id: number;
-  photo: string;
   name: string;
   description: string;
+  photo: string;
   price: string;
   createdAt: string;
   updatedAt: string;
@@ -47,4 +25,10 @@ interface IProductsCardPropsArray {
 
 interface IStaticProps {
   products: IProducts;
+}
+
+
+interface IShopCartProps {
+  isCartOpen: boolean;
+  setIsCartOpen: () => void;
 }
